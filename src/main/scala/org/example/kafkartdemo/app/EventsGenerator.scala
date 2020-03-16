@@ -1,4 +1,4 @@
-package org.example.kafkartpoc.app
+package org.example.kafkartdemo.app
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.streaming.StreamingQueryListener.{QueryProgressEvent, QueryStartedEvent, QueryTerminatedEvent}

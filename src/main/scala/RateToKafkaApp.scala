@@ -9,7 +9,7 @@ import org.json4s.jackson.Serialization.write
 
 object RateToKafkaApp {
 
-  val spark: SparkSession = SparkSession.builder.master("local[*]").getOrCreate()
+  val spark: SparkSession = SparkSession.builder.getOrCreate()
 
   def streamDf(rowsPerSecond: Int = 1): DataFrame = {
     spark.readStream.format("rate").option("rowsPerSecond", rowsPerSecond).load()
@@ -35,7 +35,7 @@ object RateToKafkaApp {
         microBatchDf.write
           .format("kafka") // Writing to Kafka in batch mode, since 2.4
           .option("checkpointLocation", "checkpoint")
-          .option("kafka.bootstrap.servers", "localhost:9092")
+          .option("kafka.bootstrap.servers", "kafka:9092")
           .option("kafka.compression.type", "gzip")
           .save()
       }).start()

@@ -5,13 +5,16 @@ import org.apache.spark.sql.functions.expr
 
 object KafkaToConsoleApp {
 
-  val spark: SparkSession = SparkSession.builder.master("local[*]").getOrCreate()
+  val spark: SparkSession = SparkSession.builder.getOrCreate()
 
   def streamDf(subscribe: String): DataFrame = {
     spark.readStream
       .format("kafka")
-      .option("kafka.bootstrap.servers", "localhost:9092")
+      .option("kafka.bootstrap.servers", "kafka:9092")
       .option("kafka.compression.type", "gzip")
+      .option("kafka.reconnect.backoff.max.ms", 10 * 1000)
+      .option("kafka.reconnect.backoff.ms", 5 * 1000)
+      .option("failOnDataLoss", "false")
       .option("subscribe", subscribe)
       .load()
   }

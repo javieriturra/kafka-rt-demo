@@ -9,7 +9,7 @@ import org.json4s.jackson.Serialization.write
 
 object RateToMicroBatchApp {
 
-  val spark: SparkSession = SparkSession.builder.master("local[*]").getOrCreate()
+  val spark: SparkSession = SparkSession.builder.getOrCreate()
 
   def streamDf(rowsPerSecond: Int = 1): DataFrame = {
     spark.readStream.format("rate").option("rowsPerSecond", rowsPerSecond).load()

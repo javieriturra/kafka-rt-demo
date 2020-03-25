@@ -2,6 +2,7 @@ version: "3"
 services:
   kafka:
     build: docker-build-kafka/.
+    hostname: "kafka"
     entrypoint: "/bin/bash entrypoint.sh"
     ports:
       - 9092:9092
@@ -18,3 +19,4 @@ services:
   spark-worker-b:
     build: docker-build-spark/.
     entrypoint: "/bin/bash worker.sh"
+

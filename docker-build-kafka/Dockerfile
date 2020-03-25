@@ -7,7 +7,7 @@ RUN apt-get install -y unzip
 WORKDIR /opt
 
 ARG KAFKA_VERSION="0.10.2.2"
-ARG SCALA_VERSION="2.12"
+ARG SCALA_VERSION="2.11"
 ARG KAFKA_BIN="kafka_${SCALA_VERSION}-${KAFKA_VERSION}"
 ARG KAFKA_DOWNLOAD="http://archive.apache.org/dist/kafka/${KAFKA_VERSION}/${KAFKA_BIN}.tgz"
 

@@ -13,9 +13,3 @@ services:
   spark-worker-b:
     build: .
     entrypoint: "/bin/bash worker.sh"
-  spark-worker-c:
-      build: .
-      entrypoint: "/bin/bash worker.sh"
-  spark-worker-d:
-      build: .
-      entrypoint: "/bin/bash worker.sh"

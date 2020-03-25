@@ -3,6 +3,8 @@ services:
   kafka:
     build: docker-build-kafka/.
     entrypoint: "/bin/bash entrypoint.sh"
+    ports:
+      - 9092:9092
   spark-master:
     build: docker-build-spark/.
     hostname: "spark-master"

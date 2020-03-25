@@ -24,7 +24,7 @@ object KafkaToConsoleApp {
     streamDf.writeStream.format("console")
       .outputMode(OutputMode.Append())
       .option("truncate", "false")
-      .trigger(Trigger.ProcessingTime(5 * 1000))
+      .trigger(Trigger.ProcessingTime(10 * 1000))
       .start()
   }
 
@@ -32,9 +32,5 @@ object KafkaToConsoleApp {
     load()
     spark.streams.awaitAnyTermination()
   }
-
-  Logger.getRootLogger.setLevel(Level.ERROR)
-  Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
-  Logger.getLogger("org.spark-project").setLevel(Level.WARN)
 
 }

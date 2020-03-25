@@ -3,7 +3,7 @@ name := "kafka-rt-demo"
 
 version := "0.1"
 
-scalaVersion := "2.11.12"
+scalaVersion := "2.12.11"
 
 val sparkVersion = "2.4.5"
 

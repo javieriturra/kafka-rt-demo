@@ -1,5 +1,5 @@
 
-name := "kafka-rt-demo"
+name := "kafka-spark-poc"
 
 version := "0.1"
 

@@ -1,4 +1,4 @@
-# Kafka RT Demo
+# Kafka Spark POC
 
 Written in Scala, this project introduces basic Structured Streaming features of Apache Spark like:
 - Kafka events producing and consuming

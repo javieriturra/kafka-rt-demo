@@ -1,8 +1,8 @@
 version: "3"
 services:
-  kafka:
-    build: .
-    hostname: "kafka"
+  kafka_spark:
+    build: "."
+    hostname: "localhost"
     entrypoint: "/bin/bash entrypoint.sh"
     ports:
       - 9092:9092
